@@ -20,10 +20,12 @@ class HomeController: UIViewController {
     }
     
     func configViewModel() {
-        viewModel.getpopularMovies()
-        viewModel.getTopRatedMovies()
+        viewModel.getItems()
         viewModel.successCallback = {
             self.collection.reloadData()
+        }
+        viewModel.errorCallback = { message in
+            // show error on alert 
         }
     }
     
@@ -40,7 +42,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(HomeCell.self)", for: indexPath) as! HomeCell
-        cell.configure(data: viewModel.category[indexPath.item].items)
+        cell.configure(data: viewModel.category[indexPath.item])
         return cell
     }
     

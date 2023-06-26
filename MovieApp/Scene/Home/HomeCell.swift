@@ -9,6 +9,7 @@ import UIKit
 
 class HomeCell: UICollectionViewCell {
     @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet weak var categoryNameLabel: UILabel!
     
     private var movieItems = [MovieResult]()
     
@@ -18,8 +19,9 @@ class HomeCell: UICollectionViewCell {
         collection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
     
-    func configure(data: [MovieResult]) {
-        movieItems = data
+    func configure(data: Category) {
+        movieItems = data.items
+        categoryNameLabel.text = data.title
         collection.reloadData()
     }
 }

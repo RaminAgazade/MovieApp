@@ -10,10 +10,16 @@ import Foundation
 class HomeManager {
     static let shared = HomeManager()
     
-    func getItems(complete: @escaping((Movie?, String?)->()))  {
-        
+    func getIMovietems(category: HomeCategory, complete: @escaping((Movie?, String?)->()))  {
+        var url = ""
+        switch category {
+        case .popular:
+            url = HomeEndpoint.popular.path
+        case .topRated:
+            url = HomeEndpoint.topRated.path
+        }
         NetworkManager.shared.request(model: Movie.self,
-                                      url: "",
+                                      url: url,
                                       complete: complete)
     }
 }

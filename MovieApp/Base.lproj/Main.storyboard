@@ -139,6 +139,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="403" height="318"/>
                                         <connections>
+                                            <outlet property="categoryNameLabel" destination="boX-aJ-ndi" id="Ghd-Ik-42l"/>
                                             <outlet property="collection" destination="RTf-bU-gW7" id="fpc-J7-752"/>
                                         </connections>
                                     </collectionViewCell>
